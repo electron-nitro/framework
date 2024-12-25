@@ -1,2 +1,3 @@
-# framework
-electron-nitro framework
+# electron-nitro framework
+
+electron-nitro app framework
