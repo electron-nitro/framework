@@ -1,0 +1,35 @@
+{
+  "name": "@electron-nitro/core",
+  "version": "0.0.1",
+  "description": "electron-nitro core",
+  "author": {
+    "name": "wanlitao",
+    "email": "wanlitao_3055601@outlook.com",
+    "url": "https://github.com/electron-nitro"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/electron-nitro/framework.git",
+    "directory": "packages/core"
+  },
+  "license": "MIT",
+  "keywords": [
+    "electron",
+    "nitro",
+    "core"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "pathe": "^1.1.2"
+  },
+  "devDependencies": {
+    "nitropack": "latest"
+  },
+  "packageManager": "pnpm@9.9.0",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
