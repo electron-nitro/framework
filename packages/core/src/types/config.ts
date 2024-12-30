@@ -1,5 +1,15 @@
-import { NitroConfig } from "nitropack/types";
-
 export interface ElectronNitroConfig {
-  nitro: NitroConfig;
+  source: {
+    nitroDir: string;
+    electronDir: string;
+  };
+  output: {
+    nitroDir: string;
+    electronDir: string;
+  };
+}
+
+export interface ElectronNitroOptions {
+  // Internal
+  _config: ElectronNitroConfig;
 }
