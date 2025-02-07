@@ -23,8 +23,10 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
+    "c12": "^2.0.1",
     "consola": "^3.3.1",
     "hookable": "^5.5.3",
+    "jiti": "^2.4.2",
     "pathe": "^1.1.2"
   },
   "devDependencies": {

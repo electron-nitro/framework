@@ -5,11 +5,10 @@ import type {
   ElectronNitroConfig,
   ElectronNitroOptions,
 } from "../types";
+import { loadOptions } from "../config/loader";
 
-export function createElectronNitroApp(config: ElectronNitroConfig) {
-  const options: ElectronNitroOptions = {
-    _config: config,
-  };
+export async function createElectronNitroApp(config: ElectronNitroConfig = {}) {
+  const options: ElectronNitroOptions = await loadOptions(config);
 
   const electronNitro: ElectronNitro = {
     options,
@@ -17,4 +16,14 @@ export function createElectronNitroApp(config: ElectronNitroConfig) {
     logger: consola.withTag("electron-nitro"),
     close: () => electronNitro.hooks.callHook("close", electronNitro),
   };
+
+  // Logger
+  if (electronNitro.options.logLevel !== undefined) {
+    electronNitro.logger.level = electronNitro.options.logLevel;
+  }
+
+  // Hooks
+  electronNitro.hooks.addHooks(electronNitro.options.hooks);
+
+  return electronNitro;
 }

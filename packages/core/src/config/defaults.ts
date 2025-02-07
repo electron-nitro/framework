@@ -1,12 +1,17 @@
+import { isTest } from "std-env";
 import type { ElectronNitroConfig } from "../types";
 
 export const ElectronNitroDefaults: ElectronNitroConfig = {
-    source: {
-        nitroDir: "src/backend",
-        electronDir: "src/electron",
-    },    
-    output: {
-        nitroDir: "dist/backend",
-        electronDir: "dist/electron",
-    }
+  logLevel: isTest ? 1 : 3,
+  source: {
+    rootDir: "src",
+    nitroDir: "backend",
+    electronDir: "electron",
+  },
+  output: {
+    rootDir: "dist",
+    nitroDir: "backend",
+    electronDir: "electron",
+  },
+  hooks: {},
 };
