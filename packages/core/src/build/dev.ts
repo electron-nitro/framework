@@ -1,8 +1,8 @@
-import type { ElectronNitro } from "../types";
 import { compileElectronSources } from "./electron";
 import { watchNitroDev } from "./nitro";
+import type { ElectronNitro } from "../types";
 
-export async function buildDev(electronNitro: ElectronNitro) {
+export async function watchDev(electronNitro: ElectronNitro) {
   const emitResult = compileElectronSources(electronNitro);
 
   if (emitResult.emitSkipped) {

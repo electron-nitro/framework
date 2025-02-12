@@ -1,6 +1,6 @@
-import type { ElectronNitro } from "../types";
 import { compileElectronSources } from "./electron";
 import { buildNitroProd } from "./nitro";
+import type { ElectronNitro } from "../types";
 
 export async function buildProduction(electronNitro: ElectronNitro) {
   const emitResult = compileElectronSources(electronNitro);
