@@ -1,5 +1,6 @@
 import { createHooks } from "hookable";
 import { consola } from "consola";
+import type { ListenOptions } from "listhen";
 import type {
   ElectronNitro,
   ElectronNitroConfig,
@@ -7,8 +8,14 @@ import type {
 } from "../types";
 import { loadOptions } from "../config/loader";
 
-export async function createElectronNitroApp(config: ElectronNitroConfig = {}) {
+export async function createElectronNitroApp(
+  config: ElectronNitroConfig = {},
+  listenOptions: Partial<ListenOptions> = {}
+) {
   const options: ElectronNitroOptions = await loadOptions(config);
+  if (options.dev) {
+    options.listenOptions = listenOptions;
+  }
 
   const electronNitro: ElectronNitro = {
     options,

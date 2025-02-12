@@ -14,5 +14,6 @@ export function resolveNitroConfigOptions(options: ElectronNitroOptions) {
       options.outputDir,
       configs.output?.nitroDir || ElectronNitroDefaults.output!.nitroDir!
     ),
+    preset: configs.nitro?.preset,
   };
 }

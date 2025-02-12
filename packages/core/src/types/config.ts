@@ -1,9 +1,12 @@
 import type { LogLevel } from "consola";
 import type { NestedHooks } from "hookable";
+import type { ListenOptions } from "listhen";
+import type { PresetNameInput } from "nitropack/presets";
 import type { ElectronNitroHooks } from "./hooks";
 
 export interface ElectronNitroConfig {
   logLevel?: LogLevel;
+  dev?: boolean;
   source?: {
     rootDir?: string;
     nitroDir?: string;
@@ -15,6 +18,9 @@ export interface ElectronNitroConfig {
     electronDir?: string;
   };
   hooks?: NestedHooks<ElectronNitroHooks>;
+  nitro?: {
+    preset?: PresetNameInput;
+  };
 }
 
 export interface ElectronNitroOptions {
@@ -27,9 +33,13 @@ export interface ElectronNitroOptions {
   srcDir: string;
   outputDir: string;
 
+  dev: boolean;
+  listenOptions?: Partial<ListenOptions>;
+
   nitro: {
     srcDir: string;
     outputDir: string;
+    preset?: PresetNameInput;
   };
 
   electron: {

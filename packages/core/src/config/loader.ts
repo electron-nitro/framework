@@ -15,11 +15,21 @@ const configResolvers = [
 ];
 
 export async function loadOptions(configOverrides: ElectronNitroConfig = {}) {
+  let presetOverride = configOverrides.nitro?.preset as string;
+  if (configOverrides.dev) {
+    presetOverride = "nitro-dev";
+  }
+
   const loadedConfig = await loadConfig<ElectronNitroConfig>({
     name: "electron-nitro",
     extend: { extendKey: "extends" },
-    overrides: configOverrides,
     defaults: ElectronNitroDefaults,
+    overrides: {
+      ...configOverrides,
+      nitro: {
+        preset: presetOverride,
+      },
+    },
   });
 
   const options = {

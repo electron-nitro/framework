@@ -26,11 +26,9 @@
     "c12": "^2.0.1",
     "consola": "^3.3.1",
     "hookable": "^5.5.3",
-    "jiti": "^2.4.2",
-    "pathe": "^1.1.2"
-  },
-  "devDependencies": {
-    "nitropack": "latest"
+    "nitropack": "latest",
+    "pathe": "^1.1.2",
+    "typescript": "^5.7.2"
   },
   "packageManager": "pnpm@9.9.0",
   "engines": {
