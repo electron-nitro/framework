@@ -5,10 +5,10 @@ import type {
   ElectronNitro,
   ElectronNitroConfig,
   ElectronNitroOptions,
-} from "../types";
-import { loadOptions } from "../config/loader";
+} from "./types";
+import { loadOptions } from "./config/loader";
 
-export async function createElectronNitroApp(
+export async function createElectronNitro(
   config: ElectronNitroConfig = {},
   listenOptions: Partial<ListenOptions> = {}
 ) {
