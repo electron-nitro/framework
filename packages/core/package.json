@@ -40,7 +40,7 @@
   "scripts": {
     "build": "unbuild",
     "prepack": "pnpm build",
-    "publish:ztx": "nrm use ztx && npm login && npm publish"
+    "publish:ztx": "nrm use ztx && pnpm login && pnpm publish"
   },
   "dependencies": {
     "c12": "^2.0.1",
