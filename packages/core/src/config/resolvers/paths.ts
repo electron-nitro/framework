@@ -3,9 +3,11 @@ import { ElectronNitroDefaults } from "../defaults";
 import type { ElectronNitroOptions } from "../../types";
 
 export function resolvePathOptions(options: ElectronNitroOptions) {
-  options.rootDir = resolve(options.rootDir || ".");
-
   const configs = options._config;
+
+  options.rootDir = resolve(
+    options.rootDir || configs.rootDir || ElectronNitroDefaults.rootDir!
+  );
 
   options.srcDir = resolve(
     options.rootDir,

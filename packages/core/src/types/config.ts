@@ -7,6 +7,7 @@ import type { ElectronNitroHooks } from "./hooks";
 export interface ElectronNitroConfig {
   logLevel?: LogLevel;
   dev?: boolean;
+  rootDir?: string;
   source?: {
     rootDir?: string;
     nitroDir?: string;
