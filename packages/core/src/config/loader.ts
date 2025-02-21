@@ -1,5 +1,6 @@
 import { loadConfig } from "c12";
 
+import { resolveCommonOptions } from "./resolvers/common";
 import { resolvePathOptions } from "./resolvers/paths";
 import { resolveNitroConfigOptions } from "./resolvers/nitro-config";
 import { resolveElectronConfigOptions } from "./resolvers/electron-config";
@@ -9,6 +10,7 @@ import { ElectronNitroDefaults } from "./defaults";
 import type { ElectronNitroConfig, ElectronNitroOptions } from "../types";
 
 const configResolvers = [
+  resolveCommonOptions,
   resolvePathOptions,
   resolveNitroConfigOptions,
   resolveElectronConfigOptions,
