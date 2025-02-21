@@ -15,8 +15,10 @@ export function compileElectronSources(electronNitro: ElectronNitro) {
     outDir: electronNitro.options.electron.outputDir, // 输出目录
   };
 
+  const fileNames = ts.sys.readDirectory(compilerOptions.rootDir!, [".ts"]);
+
   // 创建编译程序
-  const program = ts.createProgram([], compilerOptions);
+  const program = ts.createProgram(fileNames, compilerOptions);
 
   // 编译
   const emitResult = program.emit();
