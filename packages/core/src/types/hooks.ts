@@ -1,4 +1,5 @@
-import type { Nitro, NitroConfig } from "nitropack/types";
+import type { Nitro } from "nitropack/types";
+import type { Listener } from "listhen";
 import type { ElectronNitro } from "./electron-nitro";
 
 export type HookResult = void | Promise<void>;
@@ -31,17 +32,18 @@ export interface ElectronNitroHooks {
 
   // Nitropack
   /**
-   * Called before initializing Nitro, allowing customization of Nitro's configuration.
-   * @param nitroConfig The nitro config to be extended
-   * @returns Promise
-   */
-  "nitro:config": (nitroConfig: NitroConfig) => HookResult;
-  /**
    * Called after Nitro is initialized, which allows registering Nitro hooks and interacting directly with Nitro.
    * @param nitro The created nitro object
    * @returns Promise
    */
   "nitro:init": (nitro: Nitro) => HookResult;
+  /**
+   * Called after Nitro is initialized, and the dev server is started with listening.
+   * @param nitro The created nitro object
+   * @param listener The dev server listener
+   * @returns Promise
+   */
+  "nitro:dev:listen": (nitro: Nitro, listener: Listener) => HookResult;
   /**
    * Called before building the Nitro instance.
    * @param nitro The created nitro object

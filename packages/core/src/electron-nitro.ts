@@ -32,5 +32,7 @@ export async function createElectronNitro(
   // Hooks
   electronNitro.hooks.addHooks(electronNitro.options.hooks);
 
+  electronNitro.hooks.callHook("ready", electronNitro);
+
   return electronNitro;
 }

@@ -55,10 +55,16 @@ export async function watchNitroDev(electronNitro: ElectronNitro) {
       }
     );
     nitro.hooks.hookOnce("restart", reload);
+
+    electronNitro.hooks.callHook("nitro:init", nitro);
+
     const server = createDevServer(nitro);
     const listhenOptions = electronNitro.options.listenOptions!;
-    await server.listen(listhenOptions.port || 3000, listhenOptions);
+    const listener = await server.listen(listhenOptions.port || 3000, listhenOptions);
+    electronNitro.hooks.callHook("nitro:dev:listen", nitro, listener);
+
     await prepare(nitro);
+    electronNitro.hooks.callHook("nitro:build:before", nitro);
     await build(nitro);
   };
   await reload();
@@ -75,9 +81,15 @@ export async function buildNitroProd(electronNitro: ElectronNitro) {
     minify: false,
     preset: electronNitro.options.nitro.preset,
   });
+
+  electronNitro.hooks.callHook("nitro:init", nitro);
+
   await prepare(nitro);
   await copyPublicAssets(nitro);
   await prerender(nitro);
+
+  electronNitro.hooks.callHook("nitro:build:before", nitro);
   await build(nitro);
+
   await nitro.close();
 }
